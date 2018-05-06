@@ -1,23 +1,23 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <v-nav></v-nav>
+    <keep-alive>
+      <router-view class="view"></router-view>
+    </keep-alive>
   </div>
 </template>
 
 <script>
+import nav from '@/components/nav/nav'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    'v-nav': nav
+  }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="stylus">
+.view
+  overflow: hidden
 </style>

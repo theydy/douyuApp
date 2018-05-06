@@ -10,10 +10,39 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api': {
+        target: 'http://open.douyucdn.cn/api/RoomApi',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      },
+      '/category': {
+        target: 'https://m.douyu.com/category',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/category': ''
+        }
+      },
+      '/home': {
+        target: 'https://m.douyu.com/index/getHomeData',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/home': ''
+        }
+      },
+      'room': {
+        target: 'http://open.douyucdn.cn/api/RoomApi/room',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/room': ''
+        }
+      }
+    },
 
     // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
+    host: '0.0.0.0', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
